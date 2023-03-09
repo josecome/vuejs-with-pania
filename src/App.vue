@@ -64,10 +64,13 @@
         <div class="center" style="width: 800px">    
 <h1 style="text-align: center;">Vuejs with Pinia<br />(Task management)</h1><br />
 <div class="center" style="width: 100%;">
-    <div class="center"><input type="text" id="txtaddTask" v-model="taks_input" />
-    <button @click="addtask" class="btn btn-primary" 
-        style="margin-left: 10px; 
-        background-color: #0FEFEF;">Add Task</button>
+    <div class="center" style="display: flex;">
+        <input type="text" id="txtaddTask"  class="form-control" v-model="taks_input" 
+        placeholder="Add task"
+        style="width: 180px;" />
+        <button @click="addtask" class="btn btn-primary" 
+        style="margin-left: 10px; background-color: #0FEFEF;"
+        >Add Task</button>
     </div>
 
     <div class="center">
