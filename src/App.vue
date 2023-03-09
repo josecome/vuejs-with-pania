@@ -52,7 +52,7 @@
       console.log(res);
     }
     onMounted(getData);
-    
+
 </script>
 
 <style>
@@ -60,7 +60,35 @@
 </style>
 
 <template>
-    
+        <div class="center" style="width: 800px">    
+<h1 style="text-align: center;">Vuejs with Pinia (Task management)</h1><br />
+<div class="center" style="width: 100%;">
+    <div class="center"><input type="text" id="txtaddTask" v-model="taks_input" />
+    <button @click="addtask">Add Task</button></div>
+
+    <div class="center">
+        Total tasks: {{ totalTasks }}<br />
+        <button @click="getData">All tasks</button>
+        <button @click="TasksList('Ongoing')">Ongoing</button>
+        <button @click="TasksList('Completed')">Completed</button>
+
+<div class="alltasks">
+    <div class="tasks" v-for="task in tasks" style="padding: 8px; width: 80%; border: 1px solid gray;" >
+        <table>
+            <tr>
+                <td><div id="iddiv">{{ task.id }}</div></td>
+                <td>{{ task.task }}</td>
+                <td><i v-show="task.status === 'Completed'" class="bi bi-check-circle-fill" style="font-size: 24px; color: #EC7063;"></i></td>
+                <td>
+                    <button v-show="task.status === 'Ongoing'" @click="completed(task.id)">Mark as completed</button>
+                </td>
+            </tr>
+        </table>      
+    </div> 
+</div>
+    </div>
+</div>
+</div>
 
 </template>
 
