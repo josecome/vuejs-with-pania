@@ -23,6 +23,35 @@
         );
         console.log(res);
     }
+
+    const completed = async (id) => {
+        let confirm_message = "Confirm to update task as completed"
+        if (confirm(confirm_message) == false) {
+            return false;
+        }
+        const v = { "status":"Completed" }
+        const res = await axios.patch(`http://127.0.0.1:3000/task/${id}`, v,
+          {
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            }
+          }
+        );
+        console.log(res);
+    }
+
+    function TasksList(v) {
+        status.value = v //Just in case other component need
+        tasks.value = tasks.value.filter((task) => { return task.status === v })
+    }
+
+    const getData = async () => {
+      const res = await axios.get("http://127.0.0.1:3000/task");
+      tasks.value = res.data;
+      console.log(res);
+    }
+    onMounted(getData);
     
 </script>
 
