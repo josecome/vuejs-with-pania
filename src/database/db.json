@@ -1,0 +1,19 @@
+{
+  "task": [
+    {
+      "id": 1,
+      "task": "Travel to the next city",
+      "status": "Completed"
+    },
+    {
+      "id": 2,
+      "task": "Travel to the longest city",
+      "status": "Completed"
+    },
+    {
+      "id": 3,
+      "task": "Travel to remote area",
+      "status": "Completed"
+    }
+  ]
+}
