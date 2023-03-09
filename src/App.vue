@@ -56,22 +56,37 @@
 </script>
 
 <style>
+    @import "bootstrap/dist/css/bootstrap.css";
     @import "bootstrap-icons/font/bootstrap-icons.css";
 </style>
 
 <template>
         <div class="center" style="width: 800px">    
-<h1 style="text-align: center;">Vuejs with Pinia (Task management)</h1><br />
+<h1 style="text-align: center;">Vuejs with Pinia<br />(Task management)</h1><br />
 <div class="center" style="width: 100%;">
     <div class="center"><input type="text" id="txtaddTask" v-model="taks_input" />
-    <button @click="addtask">Add Task</button></div>
+    <button @click="addtask" class="btn btn-primary" 
+        style="margin-left: 10px; 
+        background-color: #0FEFEF;">Add Task</button>
+    </div>
 
     <div class="center">
         Total tasks: {{ totalTasks }}<br />
-        <button @click="getData">All tasks</button>
-        <button @click="TasksList('Ongoing')">Ongoing</button>
-        <button @click="TasksList('Completed')">Completed</button>
-
+        <div style="margin-bottom: 8px;">
+            <button @click="getData" class="btn btn-primary" 
+            style="padding-left: 4px; margin-right: 4px;">
+                All tasks
+        </button>
+        <button @click="TasksList('Ongoing')" class="btn btn-primary" 
+            style="padding-left: 4px; margin-right: 4px;">
+                Ongoing
+        </button>
+        <button @click="TasksList('Completed')" class="btn btn-primary" 
+            style="padding-left: 4px; margin-right: 4px;">
+                Completed
+        </button>
+        </div>
+       
 <div class="alltasks">
     <div class="tasks" v-for="task in tasks" style="padding: 8px; width: 80%; border: 1px solid gray;" >
         <table>
