@@ -56,7 +56,7 @@
 </script>
 
 <style>
-    
+    @import "bootstrap-icons/font/bootstrap-icons.css";
 </style>
 
 <template>
