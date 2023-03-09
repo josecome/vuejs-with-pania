@@ -1,6 +1,7 @@
 # vuejs_with_pania
 
-This app aim to show how to use Vue with Pinia.
+This app aim to show how to use Vue with Pinia. This is small Task Management app.
+<img src="public/vue_pinia.jpg"> 
 
 ## Project Setup
 
