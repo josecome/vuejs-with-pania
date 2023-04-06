@@ -91,7 +91,7 @@
         </div>
        
 <div class="alltasks">
-    <div class="tasks" v-for="task in tasks" style="padding: 8px; width: 80%; border: 1px solid gray;" >
+    <div class="tasks" v-for="task in tasks" :key="id" style="padding: 8px; width: 80%; border: 1px solid gray;" >
         <table>
             <tr>
                 <td><div id="iddiv">{{ task.id }}</div></td>
