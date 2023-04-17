@@ -2,15 +2,16 @@
     import { ref, onMounted } from 'vue'
     import { storeToRefs } from 'pinia'
     import { useStoreTasks } from '@/stores/storetasks'
+    import Button from './components/Button.vue'
     import axios from 'axios'
-
+   
     const store = useStoreTasks()
 
     const {  tasks, totalTasks, status } = storeToRefs(store)
     
     const taks_input = ref('')
 
-    const addtask = async () => {
+    const addTask = async () => {
         alert(totalTasks.value)
         const v = { "id": (Number(totalTasks) + 1), "task":taks_input.value, "status":"Ongoing", "favorite":0 }
         const res = await axios.post('http://127.0.0.1:3000/task/', v,
@@ -68,26 +69,32 @@
         <input type="text" id="txtaddTask"  class="form-control" v-model="taks_input" 
         placeholder="Add task"
         style="width: 180px;" />
-        <button @click="addtask" class="btn btn-primary" 
-        style="margin-left: 10px; background-color: #0FEFEF;"
-        >Add Task</button>
+        <Button
+            @btn-click="addTask"
+            :text="'Add Task'"
+            :className="'btn btn-primary'"   
+          />
     </div>
 
     <div class="center">
         Total tasks: {{ totalTasks }}<br />
         <div style="margin-bottom: 8px;">
-            <button @click="getData" class="btn btn-primary" 
-            style="padding-left: 4px; margin-right: 4px;">
-                All tasks
-        </button>
-        <button @click="TasksList('Ongoing')" class="btn btn-primary" 
-            style="padding-left: 4px; margin-right: 4px;">
-                Ongoing
-        </button>
-        <button @click="TasksList('Completed')" class="btn btn-primary" 
-            style="padding-left: 4px; margin-right: 4px;">
-                Completed
-        </button>
+            <Button
+            @btn-click="getData"
+            :text="'All Tasks'"
+            :className="'btn btn-primary'"   
+          />
+          <Button
+            @btn-click="TasksList('Ongoing')"
+            :text="'Ongoing'"
+            :className="'btn btn-primary'"     
+          />          
+          <Button
+            @btn-click="TasksList('Completed')"
+            :text="'Completed'"
+            :className="'btn btn-primary'"     
+            :color="'#EFF2F3'"
+          />
         </div>
        
 <div class="alltasks">
